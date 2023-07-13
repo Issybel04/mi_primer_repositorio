@@ -1,0 +1,6 @@
+2307001|Gerardo|Mathus|Gómez Sandoval
+2307002|Alberto|Preciado|Fernández
+2307003|Elsa|Serrano|Salcedeo
+2307004|Isabel|López|Acero
+2307005|José|Pérez|Sánchez
+2307006|María|Juárez|Rodríguez
