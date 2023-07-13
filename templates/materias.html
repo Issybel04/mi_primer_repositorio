@@ -1,0 +1,16 @@
+<h1>Materias</h1>
+<a href="/">Inicio</a>
+<table>
+  <thead>
+    <tr>
+      <th>Materias</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for materia in data %}
+    <tr>
+      <td>{{materia.nombre}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
