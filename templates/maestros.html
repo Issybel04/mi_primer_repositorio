@@ -1,0 +1,16 @@
+<h1>Maestros</h1>
+<a href="/">Inicio</a>
+<table>
+  <thead>
+    <tr>
+      <th>Maestros</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for maestros in data %}
+    <tr>
+      <td>{{maestros.nombre}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
