@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-
+from entidades.estudiante import Estudiante
 app = Flask(__name__)
 
 
@@ -10,19 +10,18 @@ def index():
 
 @app.route('/estudiantes')
 def estudiantes():
-    data = [
-        {"matricula": "2307001", "nombre": "Gerardo",
-            "apellido_paterno": "Mathus", "apellido_materno": "Gómez Sandoval"},
-        {"matricula": "2307002", "nombre": "Alberto",
-            "apellido_paterno": "Preciado", "apellido_materno": "Fernández"},
-        {"matricula": "2307003", "nombre": "Elsa",
-            "apellido_paterno": "Serrano", "apellido_materno": "Salcedo"},
-        {"matricula": "2307004", "nombre": "Isabel",
-         "apellido_paterno": "López", "apellido_materno": "Acero"},
-    ]
-    return render_template('estudiantes.html', data=data)
+    # leer los estudaintes de la base de datos
+    estudiantes = []
+    with open('db/estudiantes.txt', 'r') as f:
+        lines = f.read().splitlines()
+        for line in lines:
+            print(line)
+            matricula, nombre, ap_paterno, ap_materno = line.split('|')
+            estudiante = Estudiante(matricula, nombre, ap_paterno, ap_materno)
+            estudiantes.append(estudiante)
+
+    return render_template('estudiantes.html', data=estudiantes)
 
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8888, debug=True)
-    
